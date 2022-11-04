@@ -43,8 +43,8 @@ export const GithubProvider = ({ children }) => {
   };
 
   //Clear Search
-  const clearSearch = () => {
-    dispatch({ type: "CLEAR" });
+  const clearUsers = () => {
+    dispatch({ type: "CLEAR_USERS" });
   };
 
   return (
@@ -53,7 +53,7 @@ export const GithubProvider = ({ children }) => {
         users: state.users,
         loading: state.loading,
         searchUsers,
-        clearSearch,
+        clearUsers,
       }}
     >
       {children}
