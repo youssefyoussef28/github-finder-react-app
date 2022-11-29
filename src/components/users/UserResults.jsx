@@ -19,6 +19,6 @@ function UserResults() {
   } else {
     return <Spinner />;
   }
-}
+} 
 
 export default UserResults;
