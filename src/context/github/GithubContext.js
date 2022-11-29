@@ -24,11 +24,7 @@ export const GithubProvider = ({ children }) => {
       q: text,
     });
 
-    const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
-      headers: {
-        Authorization: `token ${GITHUB_TOKEN}`,
-      },
-    });
+    const response = await fetch(`${GITHUB_URL}/search/users?${params}`);
     const { items } = await response.json();
 
     dispatch({
@@ -36,6 +32,12 @@ export const GithubProvider = ({ children }) => {
       payload: items,
     });
   };
+// The Header which has the bearer token 
+  // , {
+  //   headers: {
+  //     Authorization: `token ${GITHUB_TOKEN}`,
+  //   },
+  // }
 
   //set Loading
   const setLoading = () => {
