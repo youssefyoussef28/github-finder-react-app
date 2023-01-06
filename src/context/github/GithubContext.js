@@ -9,6 +9,8 @@ const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 // Provider Function ( and children are what ever we surround with the provider)
 
 export const GithubProvider = ({ children }) => {
+
+  // Reducer Elements
   const initialState = {
     users: [],
     loading: false,
