@@ -9,10 +9,10 @@ const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 // Provider Function ( and children are what ever we surround with the provider)
 
 export const GithubProvider = ({ children }) => {
-
   // Reducer Elements
   const initialState = {
     users: [],
+    user: {},
     loading: false,
   };
 
@@ -34,12 +34,22 @@ export const GithubProvider = ({ children }) => {
       payload: items,
     });
   };
-// The Header which has the bearer token 
-  // , {
-  //   headers: {
-  //     Authorization: `token ${GITHUB_TOKEN}`,
-  //   },
-  // }
+
+  // Get Single users
+  const getUser = async (login) => {
+    setLoading();
+
+    const response = await fetch(`${GITHUB_URL}/users/${login}`);
+    if (response.status === 404) {
+      window.location = "/notfound";
+    }
+    const data = await response.json();
+
+    dispatch({
+      type: "GET_USER",
+      payload: data,
+    });
+  };
 
   //set Loading
   const setLoading = () => {
@@ -56,8 +66,10 @@ export const GithubProvider = ({ children }) => {
       value={{
         users: state.users,
         loading: state.loading,
+        user: state.user,
         searchUsers,
         clearUsers,
+        getUser,
       }}
     >
       {children}
@@ -66,3 +78,10 @@ export const GithubProvider = ({ children }) => {
 };
 
 export default GithubContext;
+
+// The Header which has the bearer token
+// , {
+//   headers: {
+//     Authorization: `token ${GITHUB_TOKEN}`,
+//   },
+// }
