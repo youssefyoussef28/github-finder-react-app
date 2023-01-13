@@ -22,25 +22,8 @@ export const GithubProvider = ({ children }) => {
   // Get search users
 
   // Get Single users
-  const getUser = async (login) => {
-    setLoading();
-
-    const response = await fetch(`${GITHUB_URL}/users/${login}`);
-    if (response.status === 404) {
-      window.location = "/notfound";
-    }
-    const data = await response.json();
-
-    dispatch({
-      type: "GET_USER",
-      payload: data,
-    });
-  };
 
   //set Loading
-  const setLoading = () => {
-    dispatch({ type: "SET_LOADING" });
-  };
 
   //Clear Search
   const clearUsers = () => {
@@ -49,34 +32,12 @@ export const GithubProvider = ({ children }) => {
 
   // Get user Repos
 
-  const getUserRepos = async (login) => {
-    setLoading();
-
-    const params = new URLSearchParams({
-      sort: "created",
-      per_page: 10,
-    });
-
-    const response = await fetch(
-      `${GITHUB_URL}/users/${login}/repos?${params}`
-    );
-
-    const data = await response.json();
-
-    dispatch({
-      type: "GET_REPOS",
-      payload: data,
-    });
-  };
-
   return (
     <GithubContext.Provider
       value={{
         ...state,
         dispatch,
         clearUsers,
-        getUser,
-        getUserRepos,
       }}
     >
       {children}
