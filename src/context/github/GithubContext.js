@@ -26,9 +26,6 @@ export const GithubProvider = ({ children }) => {
   //set Loading
 
   //Clear Search
-  const clearUsers = () => {
-    dispatch({ type: "CLEAR_USERS" });
-  };
 
   // Get user Repos
 
@@ -37,7 +34,6 @@ export const GithubProvider = ({ children }) => {
       value={{
         ...state,
         dispatch,
-        clearUsers,
       }}
     >
       {children}
