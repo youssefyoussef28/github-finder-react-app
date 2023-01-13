@@ -10,12 +10,16 @@ import {
 
 function About() {
   return (
-    <div className="stat-value">
+    <div className="font-bold">
       <h1 className="text-6xl mb-4">Github Finder</h1>
-      <h2 className="text-2xl mb-4">
-        This WebApp is part of a paid course by Traversy Media "React Front to
-        back 2022" on Udemy.
-      </h2>
+      <div className="">
+        {" "}
+        <div className="text-2xl mb-4 font-semibold">
+          This WebApp is part of a paid course by Traversy Media "React Front to
+          back 2022" on Udemy.
+        </div>
+      </div>
+
       <h2 className="text-2xl mb-4 flex items-center">
         <a className="text-blue-500" href="https://github.com/youssefyoussef28">
           {" "}
