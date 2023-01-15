@@ -14,10 +14,10 @@ function About() {
       <h1 className="text-6xl mb-4">Github Finder</h1>
       <div className="">
         {" "}
-        <div className="text-2xl mb-4 font-semibold">
+        {/* <div className="text-2xl mb-4 font-semibold">
           This WebApp is part of a paid course by Traversy Media "React Front to
           back 2022" on Udemy.
-        </div>
+        </div> */}
       </div>
 
       <h2 className="text-2xl mb-4 flex items-center">
